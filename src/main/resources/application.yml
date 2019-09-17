@@ -1,0 +1,25 @@
+server:
+  port: 8810
+
+spring:
+  application:
+    name: NBIoTResolution
+  profiles:
+    active: prod
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/java?serverTimezone=GMT&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+
+mybatis:
+  configuration:
+    cache-enabled: true
+    lazy-loading-enabled: false
+    aggressive-lazy-loading: false
+    multiple-result-sets-enabled: true
+    default-executor-type: reuse
+    default-statement-timeout: 25000
+  type-aliases-package: org.spring.springboot.domain
+  type-handlers-package: com.tjlcast.server.typeHandler
