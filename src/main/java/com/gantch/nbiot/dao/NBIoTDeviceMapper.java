@@ -5,7 +5,9 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-
+/**
+ * Created by rongshuai on 2019/9/11
+ */
 @Mapper
 public interface NBIoTDeviceMapper {
     @Insert("INSERT INTO nbiotdevice(mac,deviceId) VALUES (#{mac}, #{deviceId})")

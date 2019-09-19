@@ -1,7 +1,9 @@
 package com.gantch.nbiot.model;
 
 import lombok.Data;
-
+/**
+ * Created by rongshuai on 2019/9/11
+ */
 @Data
 public class NbiotTokenRelation {
     private Integer id;

@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="59ef31ee-b24e-4e11-9218-6f33a7ec2296" name="Default" comment="" />
+    <list default="true" id="59ef31ee-b24e-4e11-9218-6f33a7ec2296" name="Default" comment="实现了设备入网功能">
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/GatewayMethod/GatewayMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/GatewayMethod/GatewayMethod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/GatewayMethod/Impl/GatewayMethodImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/GatewayMethod/Impl/GatewayMethodImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/httpRequest/httpRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/httpRequest/httpRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/model/NbiotDevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/model/NbiotDevice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/model/NbiotTokenRelation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/model/NbiotTokenRelation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/mqtt/DataMessageCallBack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/mqtt/DataMessageCallBack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/mqtt/DataMessageClient$SingletonMqttClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/mqtt/DataMessageClient$SingletonMqttClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/mqtt/DataMessageClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/mqtt/DataMessageClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/mqtt/RpcMessageCallBack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/mqtt/RpcMessageCallBack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/mqtt/RpcMqttClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/mqtt/RpcMqttClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/service/DataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/service/DataService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/service/NbiotDeviceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/service/NbiotDeviceService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/service/NbiotTokenRelationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/service/NbiotTokenRelationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/service/UplinkService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gantch/nbiot/service/UplinkService.class" afterDir="false" />
+    </list>
     <ignored path="NBIoTResolution.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -12,6 +27,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -27,15 +45,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/transform/UdpServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-125">
-              <caret line="40" column="32" lean-forward="true" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+            <state relative-caret-position="-343">
+              <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1102#1118#0" expanded="true" />
-                <element signature="e#1731#1732#0" expanded="true" />
-                <element signature="e#1765#1766#0" expanded="true" />
-                <element signature="e#1814#1815#0" expanded="true" />
-                <element signature="e#1839#1840#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -44,44 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/transform/UdpServerHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/GatewayMethod/GatewayMethod.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/GatewayMethod/Impl/GatewayMethodImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/DataMessageCallBack.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="32" />
+            <state relative-caret-position="118">
+              <caret line="45" column="24" lean-forward="true" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/DataService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-250">
-              <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+            <state relative-caret-position="101">
+              <caret line="38" column="60" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -102,10 +79,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/model/NbiotTokenRelation.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/DataMessageCallBack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="82" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
+            <state relative-caret-position="277">
+              <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/model/NbiotDevice.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="490">
+              <caret line="48" column="1" lean-forward="true" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/DataMessageClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,6 +122,15 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>nbiotDevice</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="REBASE" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -132,30 +142,32 @@
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/dao/DeviceTokenRelationMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/DeviceTokenRelationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/Config.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/RpcMqttClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/dao/GatewayGroupMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/model/GatewayGroup.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/UplinkService.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/Application.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/NbiotTokenRelationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/httpRequest/Impl/httpRequestImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/httpRequest/httpRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/model/NbiotGroup.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/dao/NBIoTGroupMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/NbiotGroupService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/model/NbiotDevice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/transform/UdpServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/dao/NBIoTDeviceMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/dao/NbiotTokenRelationMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/model/NbiotTokenRelation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/transform/UdpServerHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/transform/UdpServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/DataMessageClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/DataMessageCallBack.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/DataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/GatewayMethod/Impl/GatewayMethodImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/GatewayMethod/GatewayMethod.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/model/NbiotTokenRelation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/RpcMessageCallBack.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/RpcMqttClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/NbiotDeviceService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/NbiotTokenRelationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/UplinkService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/transform/UdpServerHandler.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/httpRequest/httpRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/DataService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/model/NbiotDevice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/DataMessageCallBack.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/DataMessageClient.java" />
       </list>
     </option>
   </component>
@@ -195,11 +207,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="21" />
-    <option name="y" value="81" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-18" />
     <option name="width" value="1940" />
-    <option name="height" value="665" />
+    <option name="height" value="763" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -266,6 +277,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="nbiot" type="462c0819:PsiDirectoryNode" />
+              <item name="GatewayMethod" type="462c0819:PsiDirectoryNode" />
+              <item name="Impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NBIoTResolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NBIoTResolution" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nbiot" type="462c0819:PsiDirectoryNode" />
               <item name="httpRequest" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -318,11 +339,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js-jscs-nodeInterpreter" value="D:\Program Files\nodejs\node.exe" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -753,6 +775,14 @@
       <workItem from="1566118641490" duration="65000" />
       <workItem from="1566118739789" duration="212000" />
     </task>
+    <task id="LOCAL-00001" summary="实现了设备入网功能">
+      <created>1568879669714</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1568879669714</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -765,7 +795,7 @@
       <window_info id="Capture Tool" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.2109375" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.2109375" />
       <window_info id="Structure" order="4" weight="0.25" />
       <window_info id="Palette&#9;" order="5" />
       <window_info id="Image Layers" order="6" />
@@ -775,12 +805,12 @@
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.7074756" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.4978678" visible="true" weight="0.29903978" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.4978678" visible="true" weight="0.42582417" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.39917696" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32921812" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3282967" />
       <window_info anchor="right" id="Maven Projects" order="0" />
       <window_info anchor="right" id="Designer" order="1" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
@@ -801,6 +831,10 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="实现了设备入网功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现了设备入网功能" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -860,13 +894,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/gatewayGroupService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/DeviceTokenRelationService.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/RpcMessageCallBack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/Program Files/apache-maven-3.6.0/repo/io/netty/netty-all/4.1.3.Final/netty-all-4.1.3.Final.jar!/io/netty/channel/socket/DatagramPacket.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -878,27 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/UplinkService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="97" selection-start-line="11" selection-start-column="97" selection-end-line="11" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/model/DeviceTokenRelation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -906,83 +912,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="120" column="21" selection-start-line="120" selection-start-column="21" selection-end-line="120" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/httpRequest/Impl/httpRequestImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/NbiotDeviceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/dao/NBIoTDeviceMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="10" column="67" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/model/NbiotDevice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/httpRequest/httpRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/dao/NbiotTokenRelationMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/NbiotTokenRelationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#833#834#0" expanded="true" />
-            <element signature="e#913#914#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1007,62 +940,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/RpcMqttClient.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/dao/NbiotTokenRelationMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="28" />
+        <state relative-caret-position="150">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/transform/UdpServer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/dao/NBIoTDeviceMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-125">
-          <caret line="40" column="32" lean-forward="true" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1102#1118#0" expanded="true" />
-            <element signature="e#1731#1732#0" expanded="true" />
-            <element signature="e#1765#1766#0" expanded="true" />
-            <element signature="e#1814#1815#0" expanded="true" />
-            <element signature="e#1839#1840#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/DataMessageCallBack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/DataMessageClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-292">
-          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/model/NbiotTokenRelation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="82" selection-start-line="11" selection-start-column="82" selection-end-line="11" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/DataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-250">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+        <state relative-caret-position="125">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1071,28 +962,178 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/GatewayMethod/Impl/GatewayMethodImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/transform/UdpServerHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/GatewayMethod/GatewayMethod.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/model/NbiotTokenRelation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/RpcMessageCallBack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/NbiotDeviceService.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/NbiotTokenRelationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#833#834#0" expanded="true" />
+            <element signature="e#913#914#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/UplinkService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/RpcMqttClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/transform/UdpServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-343">
+          <caret line="40" column="32" selection-start-line="40" selection-start-column="32" selection-end-line="40" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/httpRequest/httpRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1352">
+          <caret line="96" column="18" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="135" column="21" lean-forward="true" selection-start-line="135" selection-start-column="21" selection-end-line="135" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="956" column="18" selection-start-line="956" selection-start-column="18" selection-end-line="956" selection-end-column="18" />
+          <folding>
+            <element signature="e#36393#36394#0" expanded="true" />
+            <element signature="e#36459#36460#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/model/NbiotDevice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="48" column="1" lean-forward="true" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/transform/UdpServerHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="45" column="24" lean-forward="true" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/service/DataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="38" column="60" selection-start-line="38" selection-start-column="60" selection-end-line="38" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/DataMessageCallBack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gantch/nbiot/mqtt/DataMessageClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="55" column="44" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -2,7 +2,9 @@ package com.gantch.nbiot.dao;
 
 import com.gantch.nbiot.model.NbiotTokenRelation;
 import org.apache.ibatis.annotations.*;
-
+/**
+ * Created by rongshuai on 2019/9/11
+ */
 @Mapper
 public interface NbiotTokenRelationMapper {
     @Insert("INSERT INTO nbiot_token_relation(token, mac, type) VALUES (#{token}, #{mac}, #{type})")

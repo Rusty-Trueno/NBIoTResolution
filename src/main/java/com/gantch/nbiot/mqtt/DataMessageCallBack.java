@@ -5,28 +5,36 @@ import com.gantch.nbiot.model.NbiotDevice;
 import com.gantch.nbiot.model.NbiotTokenRelation;
 import com.gantch.nbiot.service.DataService;
 import com.gantch.nbiot.service.NbiotTokenRelationService;
+import org.eclipse.paho.client.mqttv3.MqttClient;
 
 /**
  * Created by rongshuai on 2019/9/11
  */
 public class DataMessageCallBack {
     private httpRequest hr = new httpRequest();
-    public void device_CallBack(NbiotDevice device, NbiotTokenRelationService nbiotTokenRelationService){
+    public void device_CallBack(NbiotDevice device, NbiotTokenRelationService nbiotTokenRelationService) throws Exception {
         System.out.println(device.toString());
         String deviceMac = device.getMac();
-        String deviceId = device.getDeviceId();
+        String deviceType = device.getDeviceType();
         NbiotTokenRelation nbiotTokenRelation = nbiotTokenRelationService.getRelationByMac(deviceMac);//根据设备的mac查询设备是否存在token
         if(nbiotTokenRelation == null){//如果设备的token不存在
             System.out.println("设备尚未在deviceaccess中创建");
             String token = null;
-            String type = DataService.deviceId2Type(deviceId);//根据设备的id获取设备的类型
-            token = hr.httpcreate(deviceMac,type);//获取设备的token
+            String id = null;
+            String type = DataService.deviceType2Type(deviceType);//根据设备的id获取设备的类型
+            id = hr.httpcreate2(deviceMac,"",type,"");//获取设备的id
+            device.setDeviceId(id);
+            token = hr.httpfind(id);//获取设备的token
             NbiotTokenRelation newNbiotTokenRelation = new NbiotTokenRelation(token,deviceMac,type);
             nbiotTokenRelationService.addARelation(newNbiotTokenRelation);//将设备的token与设备关系信息入库
+            DataMessageClient dataMessageClient = new DataMessageClient();
+            MqttClient client = dataMessageClient.getClient();
+            //向mqtt的服务端发送设备的属性信息，服务端（模拟deviceaccess）会实现设备属性信息的持久化
+            DataMessageClient.publishAttribute(client,token,device.toString());
         }
         else{//如果设备的token已经存在
             System.out.println("设备已经在deviceaccess中创建了~");
-            System.out.println("设备的类型为：" + DataService.deviceId2Type(deviceId));
+            System.out.println("设备的类型为：" + DataService.deviceType2Type(deviceType));
         }
     }
 }

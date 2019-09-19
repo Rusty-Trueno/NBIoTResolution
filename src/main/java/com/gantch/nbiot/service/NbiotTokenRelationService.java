@@ -5,7 +5,9 @@ import com.gantch.nbiot.model.NbiotTokenRelation;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+/**
+ * Created by rongshuai on 2019/9/11
+ */
 @Service
 public class NbiotTokenRelationService {
     @Autowired
