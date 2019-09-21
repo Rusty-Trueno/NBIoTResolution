@@ -23,7 +23,7 @@ public class DataMessageCallBack {
             String id = null;
             String type = DataService.deviceType2Type(deviceType);//根据设备的id获取设备的类型
             id = hr.httpcreate2(deviceMac,"",type,"");//获取设备的id
-            device.setDeviceId(id);
+            device.setDeviceId(id);//将设备的id设置为从deviceaccess获取到的UUID
             token = hr.httpfind(id);//获取设备的token
             NbiotTokenRelation newNbiotTokenRelation = new NbiotTokenRelation(token,deviceMac,type);
             nbiotTokenRelationService.addARelation(newNbiotTokenRelation);//将设备的token与设备关系信息入库

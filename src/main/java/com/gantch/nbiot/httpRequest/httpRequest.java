@@ -62,6 +62,7 @@ public class httpRequest {
         obj.put("manufacture","Gantch");
         obj.put("deviceType",type);
         obj.put("model",model);
+        obj.put("parentDeviceId",devicename);
 
         RequestBody bodyCreate = RequestBody.create(js,obj.toString());
         //创建一个Request Request是OkHttp中访问的请求，Builder是辅助类。Response即OKHttp中的响应

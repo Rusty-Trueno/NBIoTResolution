@@ -39,7 +39,7 @@ public class DataMessageClient {
             MqttConnectOptions connOpts = new MqttConnectOptions();
             connOpts.setCleanSession(true);
             connOpts.setUserName(Config.userName);
-            connOpts.setPassword(Config.password.toCharArray());
+//            connOpts.setPassword(Config.password.toCharArray());
             client.connect(connOpts);
         }catch (MqttException me){
             System.out.println("reason " + me.getReasonCode());
@@ -53,6 +53,7 @@ public class DataMessageClient {
     public static synchronized void publishData(MqttClient client, MqttMessage message, String deviceToken){
         try{
             message.setQos(0);
+            message.setRetained(false);
             client.publish(Config.datatopic + "/" + deviceToken ,message);
         }catch (MqttException me){
             System.out.println("reason " + me.getReasonCode());
@@ -67,6 +68,7 @@ public class DataMessageClient {
         //发布属性
         try{
             MqttMessage message = new MqttMessage(data.getBytes());
+            message.setRetained(false);
             message.setQos(0);
             client.publish(Config.attributetopic + "/" + token ,message);//消息发布
         }catch (MqttException me){

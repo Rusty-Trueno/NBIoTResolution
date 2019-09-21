@@ -3,6 +3,7 @@ package com.gantch.nbiot.service;
 import com.gantch.nbiot.model.NbiotDevice;
 import com.gantch.nbiot.mqtt.DataMessageCallBack;
 import com.gantch.nbiot.mqtt.DataMessageClient;
+import com.google.gson.JsonObject;
 import org.apache.commons.codec.binary.Hex;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
@@ -35,8 +36,10 @@ public class DataService {
                 }else{
                     contents = "当前设备为烟感，当前无烟~";
                 }
+                JsonObject jsonObject = new JsonObject();
+                jsonObject.addProperty("contents",contents);
                 DataMessageClient dataMessageClient = new DataMessageClient();
-                MqttMessage message = new MqttMessage(contents.getBytes());
+                MqttMessage message = new MqttMessage(jsonObject.toString().getBytes());
                 MqttClient client = dataMessageClient.getClient();
                 DataMessageClient.publishData(client,message,deviceToken);//向mqtt的服务端（模拟deviceaccess）发送数据消息
                 break;
