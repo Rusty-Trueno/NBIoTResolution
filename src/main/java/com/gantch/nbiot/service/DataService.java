@@ -14,6 +14,7 @@ public class DataService {
     private DataMessageCallBack dataMessageCallBack = new DataMessageCallBack();
     public void resolution(byte[] validData,int length,String mac,NbiotTokenRelationService nbiotTokenRelationService) throws Exception {
         String deviceType = Hex.encodeHexString(new byte[]{validData[0]},false);//获取设备类型
+        int infoLength = validData[1];
         System.out.println(deviceType);
         NbiotDevice device = new NbiotDevice();
         device.setMac(mac);
@@ -24,11 +25,11 @@ public class DataService {
             case "20":
                 Boolean isSmoking;
                 String contents;
-                if(validData[1] == (byte)0x01){
+                if(validData[2] == (byte)0x01){
                     isSmoking = true;
                 }else{ isSmoking = false; }
                 if(isSmoking){
-                    if(validData[2] == (byte)0x00){
+                    if(validData[3] == (byte)0x00){
                         contents = "当前设备为烟感，当前有烟，但是烟浓度正常~";
                     }else{
                         contents = "当前设备为烟感，当前有烟，且烟浓度低点~";

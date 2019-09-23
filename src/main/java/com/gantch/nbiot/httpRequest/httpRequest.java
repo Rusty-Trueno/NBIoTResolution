@@ -19,6 +19,7 @@ public class httpRequest {
     public static String id;
     public String deviceToken;
     private static final MediaType js = MediaType.parse("application/json; charset=utf-8");
+    private static final Random random = new Random();
     private final HashMap<String, List<Cookie>> cookieStore = new HashMap<>();
     private OkHttpClient mOkHttpClient = new OkHttpClient.Builder()
             .cookieJar(new CookieJar() {
@@ -57,12 +58,12 @@ public class httpRequest {
     public String httpcreate2(String devicename,String gatewayName,String type,String model) throws Exception{
         //请求体
         JSONObject obj = new JSONObject();
-        obj.put("name",devicename);
+        obj.put("name",type+random.nextInt(4));
         obj.put("tenantId",2);
         obj.put("manufacture","Gantch");
         obj.put("deviceType",type);
         obj.put("model",model);
-        obj.put("parentDeviceId",devicename);
+        obj.put("parentDeviceId","7b198c80-d34b-11e8-be05-112f1ebe9142");
 
         RequestBody bodyCreate = RequestBody.create(js,obj.toString());
         //创建一个Request Request是OkHttp中访问的请求，Builder是辅助类。Response即OKHttp中的响应
