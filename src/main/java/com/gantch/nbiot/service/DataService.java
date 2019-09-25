@@ -24,21 +24,21 @@ public class DataService {
         switch (deviceType){
             case "20":
                 Boolean isSmoking;
-                String contents;
+                String status = "normal";
                 if(validData[2] == (byte)0x01){
                     isSmoking = true;
                 }else{ isSmoking = false; }
                 if(isSmoking){
                     if(validData[3] == (byte)0x00){
-                        contents = "当前设备为烟感，当前有烟，但是烟浓度正常~";
+                        status = "normal";
                     }else{
-                        contents = "当前设备为烟感，当前有烟，且烟浓度低点~";
+                        status = "low";
                     }
-                }else{
-                    contents = "当前设备为烟感，当前无烟~";
                 }
                 JsonObject jsonObject = new JsonObject();
-                jsonObject.addProperty("contents",contents);
+                jsonObject.addProperty("isSmoking",isSmoking);
+                jsonObject.addProperty("status",status);
+                jsonObject.addProperty("online",1D);
                 DataMessageClient dataMessageClient = new DataMessageClient();
                 MqttMessage message = new MqttMessage(jsonObject.toString().getBytes());
                 MqttClient client = dataMessageClient.getClient();
