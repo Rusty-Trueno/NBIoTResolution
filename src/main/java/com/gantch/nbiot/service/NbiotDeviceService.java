@@ -13,16 +13,8 @@ public class NbiotDeviceService {
     private NBIoTDeviceMapper nbIoTDeviceMapper ;
 
     public Integer addNbiotDevice(NbiotDevice nbiotDevice){
-        return nbIoTDeviceMapper.addNbiotDevice(nbiotDevice);
-    }
 
-    public boolean removeNbiotDeviceByMac(String mac){
-        try{
-            nbIoTDeviceMapper.removeNbiotDeviceByMac(mac);
-            return true;
-        }catch (Exception e){
-            return false;
-        }
+        return nbIoTDeviceMapper.addNbiotDevice(nbiotDevice);
     }
 
     public NbiotDevice getNbiotDevice(String mac){

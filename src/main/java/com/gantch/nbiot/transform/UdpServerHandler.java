@@ -1,10 +1,7 @@
 package com.gantch.nbiot.transform;
 
 import com.gantch.nbiot.httpRequest.httpRequest;
-import com.gantch.nbiot.service.DataService;
-import com.gantch.nbiot.service.NbiotDeviceService;
-import com.gantch.nbiot.service.NbiotTokenRelationService;
-import com.gantch.nbiot.service.UplinkService;
+import com.gantch.nbiot.service.*;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -18,13 +15,15 @@ public class UdpServerHandler extends SimpleChannelInboundHandler<DatagramPacket
     private UplinkService uplinkService;
     private NbiotDeviceService nbiotDeviceService;
     private NbiotTokenRelationService nbiotTokenRelationService;
+    private DeviceMessageDao deviceMessageDao;
     private httpRequest hr = new httpRequest();
     private DataService dataService = new DataService();
     String ips = null;
-    public UdpServerHandler(UplinkService uplinkService,NbiotDeviceService nbiotDeviceService,NbiotTokenRelationService nbiotTokenRelationService){
+    public UdpServerHandler(UplinkService uplinkService,NbiotDeviceService nbiotDeviceService,NbiotTokenRelationService nbiotTokenRelationService,DeviceMessageDao deviceMessageDao){
         this.uplinkService = uplinkService;
         this.nbiotDeviceService = nbiotDeviceService;
         this.nbiotTokenRelationService = nbiotTokenRelationService;
+        this.deviceMessageDao = deviceMessageDao;
     }
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, DatagramPacket msg) throws Exception {
@@ -57,7 +56,7 @@ public class UdpServerHandler extends SimpleChannelInboundHandler<DatagramPacket
             System.out.println("有效数据长度为：" + dataLength);
             System.out.println("mac:" + mac);
             UdpServer.getMap().put(mac,channel);//绑定设备的mac地址以及channel
-            dataService.resolution(validData,dataLength,mac,nbiotTokenRelationService);
+            dataService.resolution(validData,dataLength,mac,nbiotTokenRelationService,nbiotDeviceService,deviceMessageDao);
         }
     }
 

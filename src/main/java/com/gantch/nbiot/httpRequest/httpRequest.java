@@ -1,9 +1,10 @@
 package com.gantch.nbiot.httpRequest;
 
+import com.gantch.nbiot.model.NbiotDevice;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.json.simple.JSONObject;
 import okhttp3.*;
+import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,15 +56,23 @@ public class httpRequest {
     /**
      * 创建设备的post请求
      */
-    public String httpcreate2(String devicename,String gatewayName,String type,String model) throws Exception{
+    public String httpcreate2(NbiotDevice device, String gatewayName, String type, String model) throws Exception{
         //请求体
         JSONObject obj = new JSONObject();
-        obj.put("name",type+random.nextInt(4));
+        String name = type+random.nextInt(4);
+        obj.put("name",name);
         obj.put("tenantId",2);
         obj.put("manufacture","Gantch");
         obj.put("deviceType",type);
         obj.put("model",model);
-        obj.put("parentDeviceId","7b198c80-d34b-11e8-be05-112f1ebe9142");
+        obj.put("parentDeviceId","7b198c80-d34b-11e8-be05-112f1ebe9142");// d7edffb0-1c6e-11e9-a8fa-cdbfb1819a9d111
+
+        device.setName(name);
+        device.setTenantId(2);
+        device.setManufacture("Gantch");
+        device.setModel(model);
+        device.setParentDeviceId("7b198c80-d34b-11e8-be05-112f1ebe9142");
+
 
         RequestBody bodyCreate = RequestBody.create(js,obj.toString());
         //创建一个Request Request是OkHttp中访问的请求，Builder是辅助类。Response即OKHttp中的响应

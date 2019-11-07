@@ -4,6 +4,7 @@ import com.gantch.nbiot.httpRequest.httpRequest;
 import com.gantch.nbiot.model.NbiotDevice;
 import com.gantch.nbiot.model.NbiotTokenRelation;
 import com.gantch.nbiot.service.DataService;
+import com.gantch.nbiot.service.NbiotDeviceService;
 import com.gantch.nbiot.service.NbiotTokenRelationService;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 
@@ -12,8 +13,7 @@ import org.eclipse.paho.client.mqttv3.MqttClient;
  */
 public class DataMessageCallBack {
     private httpRequest hr = new httpRequest();
-    public void device_CallBack(NbiotDevice device, NbiotTokenRelationService nbiotTokenRelationService) throws Exception {
-        System.out.println(device.toString());
+    public void device_CallBack(NbiotDevice device, NbiotTokenRelationService nbiotTokenRelationService, NbiotDeviceService nbiotDeviceService) throws Exception {
         String deviceMac = device.getMac();
         String deviceType = device.getDeviceType();
         NbiotTokenRelation nbiotTokenRelation = nbiotTokenRelationService.getRelationByMac(deviceMac);//根据设备的mac查询设备是否存在token
@@ -22,8 +22,10 @@ public class DataMessageCallBack {
             String token = null;
             String id = null;
             String type = DataService.deviceType2Type(deviceType);//根据设备的id获取设备的类型
-            id = hr.httpcreate2(deviceMac,"",type,"");//获取设备的id
+            id = hr.httpcreate2(device,"",type,"");//获取设备的id
             device.setDeviceId(id);//将设备的id设置为从deviceaccess获取到的UUID
+            System.out.println(device);
+            nbiotDeviceService.addNbiotDevice(device);//向数据库中添加新创建的设备
             token = hr.httpfind(id);//获取设备的token
             NbiotTokenRelation newNbiotTokenRelation = new NbiotTokenRelation(token,deviceMac,type);
             nbiotTokenRelationService.addARelation(newNbiotTokenRelation);//将设备的token与设备关系信息入库

@@ -1,7 +1,7 @@
 package com.gantch.nbiot.transform;
 
-import com.gantch.nbiot.model.NbiotTokenRelation;
 import com.gantch.nbiot.mqtt.DataMessageClient;
+import com.gantch.nbiot.service.DeviceMessageDao;
 import com.gantch.nbiot.service.NbiotDeviceService;
 import com.gantch.nbiot.service.NbiotTokenRelationService;
 import com.gantch.nbiot.service.UplinkService;
@@ -10,14 +10,11 @@ import io.netty.channel.Channel;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioDatagramChannel;
-import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import javax.xml.crypto.Data;
-import java.sql.DatabaseMetaData;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -36,6 +33,9 @@ public class UdpServer {
     @Autowired
     private NbiotTokenRelationService nbiotTokenRelationService;
 
+    @Autowired
+    private DeviceMessageDao deviceMessageDao;
+
 //    public MqttClient client =  DataMessageClient
 
     private Integer port = 8095;
@@ -50,7 +50,7 @@ public class UdpServer {
             Bootstrap b = new Bootstrap();
             b.group(eventLoopGroup)
                     .channel(NioDatagramChannel.class)
-                    .handler(new UdpServerHandler(uplinkService,nbiotDeviceService,nbiotTokenRelationService));
+                    .handler(new UdpServerHandler(uplinkService,nbiotDeviceService,nbiotTokenRelationService,deviceMessageDao));
             System.out.println("first");
             b.bind(port).sync().channel().closeFuture().await();
             System.out.println("second");
