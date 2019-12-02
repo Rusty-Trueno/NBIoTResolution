@@ -20,4 +20,8 @@ public class NbiotDeviceService {
     public NbiotDevice getNbiotDevice(String mac){
         return nbIoTDeviceMapper.getNbiotDevice(mac);
     }
+
+    public int getNbiotDeviceNumber(){
+        return nbIoTDeviceMapper.getNbiotDeviceNumber();
+    }
 }

@@ -22,7 +22,8 @@ public class DataMessageCallBack {
             String token = null;
             String id = null;
             String type = DataService.deviceType2Type(deviceType);//根据设备的id获取设备的类型
-            id = hr.httpcreate2(device,"",type,"");//获取设备的id
+            int device_number = nbiotDeviceService.getNbiotDeviceNumber();
+            id = hr.httpcreate2(device,device_number,"",type,"");//获取设备的id
             device.setDeviceId(id);//将设备的id设置为从deviceaccess获取到的UUID
             System.out.println(device);
             nbiotDeviceService.addNbiotDevice(device);//向数据库中添加新创建的设备

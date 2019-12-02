@@ -56,10 +56,10 @@ public class httpRequest {
     /**
      * 创建设备的post请求
      */
-    public String httpcreate2(NbiotDevice device, String gatewayName, String type, String model) throws Exception{
+    public String httpcreate2(NbiotDevice device, int device_number,String gatewayName, String type, String model) throws Exception{
         //请求体
         JSONObject obj = new JSONObject();
-        String name = type+random.nextInt(4);
+        String name = type+device_number;
         obj.put("name",name);
         obj.put("tenantId",2);
         obj.put("manufacture","Gantch");

@@ -1,10 +1,7 @@
 package com.gantch.nbiot.transform;
 
 import com.gantch.nbiot.mqtt.DataMessageClient;
-import com.gantch.nbiot.service.DeviceMessageDao;
-import com.gantch.nbiot.service.NbiotDeviceService;
-import com.gantch.nbiot.service.NbiotTokenRelationService;
-import com.gantch.nbiot.service.UplinkService;
+import com.gantch.nbiot.service.*;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.EventLoopGroup;
@@ -36,6 +33,9 @@ public class UdpServer {
     @Autowired
     private DeviceMessageDao deviceMessageDao;
 
+    @Autowired
+    private NbiotAlarmLogDao nbiotAlarmLogDao;
+
 //    public MqttClient client =  DataMessageClient
 
     private Integer port = 8095;
@@ -50,7 +50,7 @@ public class UdpServer {
             Bootstrap b = new Bootstrap();
             b.group(eventLoopGroup)
                     .channel(NioDatagramChannel.class)
-                    .handler(new UdpServerHandler(uplinkService,nbiotDeviceService,nbiotTokenRelationService,deviceMessageDao));
+                    .handler(new UdpServerHandler(uplinkService,nbiotDeviceService,nbiotTokenRelationService,deviceMessageDao,nbiotAlarmLogDao));
             System.out.println("first");
             b.bind(port).sync().channel().closeFuture().await();
             System.out.println("second");

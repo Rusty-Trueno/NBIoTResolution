@@ -11,6 +11,7 @@ import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.gantch.nbiot.model.DeviceMessage;
+import com.gantch.nbiot.model.NbiotAlarmLog;
 import com.gantch.nbiot.model.NbiotDevice;
 import com.gantch.nbiot.mqtt.DataMessageCallBack;
 import com.gantch.nbiot.mqtt.DataMessageClient;
@@ -20,6 +21,7 @@ import org.apache.commons.codec.binary.Hex;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -29,7 +31,7 @@ import java.util.List;
 public class DataService {
 
     private DataMessageCallBack dataMessageCallBack = new DataMessageCallBack();
-    public void resolution(byte[] validData,int length,String mac,NbiotTokenRelationService nbiotTokenRelationService,NbiotDeviceService nbiotDeviceService,DeviceMessageDao deviceMessageDao) throws Exception {
+    public void resolution(byte[] validData,int length,String mac,NbiotTokenRelationService nbiotTokenRelationService,NbiotDeviceService nbiotDeviceService,DeviceMessageDao deviceMessageDao,NbiotAlarmLogDao nbiotAlarmLogDao) throws Exception {
         String deviceType = Hex.encodeHexString(new byte[]{validData[0]},false);//获取设备类型
         int infoLength = validData[1];
         System.out.println(deviceType);
@@ -47,15 +49,27 @@ public class DataService {
                     NbiotDevice nbiotDevice = nbiotDeviceService.getNbiotDevice(mac);
                     String deviceName = nbiotDevice.getName();
                     String deviceId = nbiotDevice.getDeviceId();
+                    Double latitude = nbiotDevice.getLatitude();
+                    Double longitude = nbiotDevice.getLongitude();
+                    String alarmType = "烟雾报警";
+                    String location = nbiotDevice.getLocation();
+                    String userName = nbiotDevice.getUserName();
+                    Timestamp currentTime = new Timestamp(System.currentTimeMillis());
                     System.out.println("当前设备的名字为：" + deviceName);
                     System.out.println("当前设备的Id为：" + deviceId);
+                    System.out.println("当前设备的纬度为：" + latitude);
+                    System.out.println("当前设备的经度为：" + longitude);
+                    System.out.println("当前时间戳为：" + currentTime.toString());
+                    NbiotAlarmLog nbiotAlarmLog = new NbiotAlarmLog(deviceId,currentTime,deviceName,latitude,longitude,alarmType,userName);
+                    nbiotAlarmLogDao.addNbiotAlarmLog(nbiotAlarmLog);
                     try{
                         List<DeviceMessage> deviceMessages = deviceMessageDao.getDeviceMessageById(deviceId);
                         System.out.println(deviceMessages.toString());
                         for (DeviceMessage deviceMessage : deviceMessages) {
                             String phoneNumber = deviceMessage.getPhoneNumber();
                             System.out.println("出现报警，向：" + phoneNumber + "发送短信");
-                            sendMs(deviceName,phoneNumber);//向对应手机号发送报警短信
+                            System.out.println(deviceName +"," + userName +"," + location +"," + alarmType +"," + phoneNumber);
+                            sendMs(deviceName,userName,location,alarmType,phoneNumber);//向对应手机号发送报警短信
                         }
                     }catch (Exception e){
                         System.out.println("当前尚无设备对应的报警手机号");
@@ -99,7 +113,11 @@ public class DataService {
         return type;
     }
 
-    public void sendMs(String deviceName,String phoneNumber){//发送短信报警通知
+    public void addNbiotAlarmLog(NbiotAlarmLog nbiotAlarmLog){
+
+    }
+
+    public void sendMs(String deviceName,String userName,String location,String alarmType,String phoneNumber){//发送短信报警通知
         DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "LTAI4FgntVB75X2BoJQR5qUr", "UIlRGb6N2eX1boNTuFxMhQoYKQEzhz");
         IAcsClient client = new DefaultAcsClient(profile);
         CommonRequest request = new CommonRequest();
@@ -109,9 +127,9 @@ public class DataService {
         request.setAction("SendSms");
         request.putQueryParameter("RegionId", "cn-hangzhou");
         request.putQueryParameter("PhoneNumbers", phoneNumber);
-        request.putQueryParameter("SignName", "北京冠川智能技术公司");
-        request.putQueryParameter("TemplateCode", "SMS_176936853");
-        request.putQueryParameter("TemplateParam", "{\"name\":\"" +deviceName+ "\"}");
+        request.putQueryParameter("SignName", "云消防");
+        request.putQueryParameter("TemplateCode", "SMS_177544537");
+        request.putQueryParameter("TemplateParam", "{\"deviceName\":\"" +deviceName+ "\", \"userName\":\"" +userName+ "\",\"location\":\"" + location + "\" ,\"alarmType\":\"" + alarmType + "\"}");
         try {
             CommonResponse response = client.getCommonResponse(request);
             System.out.println(response.getData());

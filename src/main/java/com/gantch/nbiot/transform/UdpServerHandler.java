@@ -16,14 +16,16 @@ public class UdpServerHandler extends SimpleChannelInboundHandler<DatagramPacket
     private NbiotDeviceService nbiotDeviceService;
     private NbiotTokenRelationService nbiotTokenRelationService;
     private DeviceMessageDao deviceMessageDao;
+    private NbiotAlarmLogDao nbiotAlarmLogDao;
     private httpRequest hr = new httpRequest();
     private DataService dataService = new DataService();
     String ips = null;
-    public UdpServerHandler(UplinkService uplinkService,NbiotDeviceService nbiotDeviceService,NbiotTokenRelationService nbiotTokenRelationService,DeviceMessageDao deviceMessageDao){
+    public UdpServerHandler(UplinkService uplinkService,NbiotDeviceService nbiotDeviceService,NbiotTokenRelationService nbiotTokenRelationService,DeviceMessageDao deviceMessageDao,NbiotAlarmLogDao nbiotAlarmLogDao){
         this.uplinkService = uplinkService;
         this.nbiotDeviceService = nbiotDeviceService;
         this.nbiotTokenRelationService = nbiotTokenRelationService;
         this.deviceMessageDao = deviceMessageDao;
+        this.nbiotAlarmLogDao = nbiotAlarmLogDao;
     }
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, DatagramPacket msg) throws Exception {
@@ -56,7 +58,7 @@ public class UdpServerHandler extends SimpleChannelInboundHandler<DatagramPacket
             System.out.println("有效数据长度为：" + dataLength);
             System.out.println("mac:" + mac);
             UdpServer.getMap().put(mac,channel);//绑定设备的mac地址以及channel
-            dataService.resolution(validData,dataLength,mac,nbiotTokenRelationService,nbiotDeviceService,deviceMessageDao);
+            dataService.resolution(validData,dataLength,mac,nbiotTokenRelationService,nbiotDeviceService,deviceMessageDao,nbiotAlarmLogDao);
         }
     }
 
